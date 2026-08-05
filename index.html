@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gujarati Trader - Learning Community</title>
+<title>Stock Market Analysis - Gujarati Trader</title>
+<meta name="description" content="Daily Market Updates & Educational Content in Gujarati">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Noto+Sans+Gujarati:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -40,36 +41,26 @@
 
   .wrap{ max-width:520px; margin:0 auto; padding:0 22px; }
 
-  /* ---- Ticker strip ---- */
-  .ticker{
-    overflow:hidden;
-    border-bottom:1px solid var(--line);
+  /* ---- Top banner ---- */
+  .top-banner{
     background:var(--bg-soft);
-    padding:9px 0;
+    border-bottom:1px solid var(--line);
+    padding:10px 16px;
+    text-align:center;
+    font-size:13px;
+    color:var(--gold-soft);
+    line-height:1.5;
   }
-  .ticker-track{
-    display:flex;
-    gap:36px;
-    white-space:nowrap;
-    animation: scroll-left 22s linear infinite;
-    width:max-content;
-  }
-  .ticker-item{ font-size:12px; letter-spacing:.03em; color:var(--muted); display:flex; align-items:center; gap:6px; }
-  .ticker-item b{ color:var(--text); font-weight:600; }
-  .ticker-item.up{ color:var(--up); }
-  @keyframes scroll-left{ from{transform:translateX(0);} to{transform:translateX(-50%);} }
+  .top-banner b{ color:var(--text); }
 
   /* ---- Hero ---- */
-  header.hero{ padding:38px 0 30px; text-align:center; position:relative; }
+  header.hero{ padding:34px 0 26px; text-align:center; position:relative; }
 
-  .chart-bg{
-    position:absolute; inset:0; z-index:0; opacity:.55; pointer-events:none;
-  }
-
+  .chart-bg{ position:absolute; inset:0; z-index:0; opacity:.5; pointer-events:none; }
   .hero-inner{ position:relative; z-index:1; }
 
   .badge-ring{
-    width:112px; height:112px; margin:0 auto 18px;
+    width:112px; height:112px; margin:0 auto 16px;
     border-radius:50%;
     padding:3px;
     background: conic-gradient(from 220deg, var(--gold), var(--up), var(--gold));
@@ -80,27 +71,58 @@
     border:3px solid var(--bg);
   }
 
-  .eyebrow{
-    display:inline-flex; align-items:center; gap:8px;
-    font-size:12px; letter-spacing:.14em; text-transform:uppercase;
-    color:var(--gold-soft); margin-bottom:14px;
-    border:1px solid rgba(215,171,79,0.35);
-    padding:6px 14px; border-radius:999px;
-    background:rgba(215,171,79,0.06);
-  }
-  .eyebrow .dot{ width:6px; height:6px; border-radius:50%; background:var(--up); box-shadow:0 0 0 3px rgba(63,179,127,0.2); }
-
   h1.brand{
-    font-size:38px; line-height:1.05; margin:0 0 10px;
+    font-size:34px; line-height:1.05; margin:0 0 4px;
     font-weight:800; letter-spacing:.01em;
     color:var(--text);
   }
   h1.brand span{ color:var(--gold); }
 
-  .tagline{
-    font-size:16.5px; color:var(--muted); margin:0 auto 28px;
-    max-width:360px; line-height:1.55;
+  .role{
+    font-size:13px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--up); font-weight:600; margin-bottom:16px;
   }
+
+  .tagline{
+    font-size:16px; color:var(--muted); margin:0 auto 26px;
+    max-width:360px; line-height:1.6;
+  }
+
+  /* ---- Stats ---- */
+  .stats{
+    display:grid; grid-template-columns:repeat(3,1fr);
+    gap:10px; margin-bottom:26px;
+  }
+  .stat-card{
+    border:1px solid var(--line); border-radius:14px;
+    background:var(--panel);
+    padding:16px 8px;
+    transition:transform .2s ease, border-color .2s ease;
+  }
+  .stat-card:hover{ transform:translateY(-3px); border-color:rgba(215,171,79,0.4); }
+  .stat-num{ font-size:22px; font-weight:800; color:var(--gold); font-family:'Baloo 2', sans-serif; }
+  .stat-label{ font-size:12px; color:var(--muted); margin-top:4px; }
+
+  /* ---- CTA ---- */
+  .cta-wrap{ text-align:center; margin-bottom:30px; }
+  .cta{
+    display:inline-flex; align-items:center; gap:10px;
+    background:linear-gradient(180deg, var(--gold-soft), var(--gold));
+    color:#1a1408;
+    font-weight:700; font-size:16px;
+    padding:15px 30px;
+    border-radius:12px;
+    text-decoration:none;
+    box-shadow:0 10px 24px -8px rgba(215,171,79,0.55);
+    transition:transform .22s ease, box-shadow .22s ease, filter .22s ease;
+  }
+  .cta:hover{
+    transform:translateY(-3px) scale(1.02);
+    box-shadow:0 16px 32px -8px rgba(215,171,79,0.7);
+    filter:brightness(1.08);
+  }
+  .cta:active{ transform:translateY(-1px) scale(0.99); }
+  .cta-sub{ margin-top:10px; font-size:12.5px; color:var(--muted); }
 
   /* ---- Feature ledger ---- */
   .ledger{
@@ -132,75 +154,33 @@
     font-size:17px;
     transition:background .2s ease, border-color .2s ease, transform .2s ease;
   }
-  .ledger-text b{ display:block; font-size:15px; color:var(--text); font-weight:600; margin-bottom:2px; }
+  .ledger-text b{ display:block; font-size:14.5px; color:var(--text); font-weight:600; margin-bottom:2px; }
   .ledger-text span{ font-size:13.5px; color:var(--muted); line-height:1.5; }
 
-  /* ---- CTA ---- */
-  .cta-wrap{ text-align:center; margin-bottom:30px; }
-  .cta{
-    display:inline-flex; align-items:center; gap:10px;
-    background:linear-gradient(180deg, var(--gold-soft), var(--gold));
-    background-size:100% 100%;
-    background-position:0% 0%;
-    color:#1a1408;
-    font-weight:700; font-size:16px;
-    padding:15px 30px;
-    border-radius:12px;
-    text-decoration:none;
-    box-shadow:0 10px 24px -8px rgba(215,171,79,0.55);
-    transition:transform .22s ease, box-shadow .22s ease, filter .22s ease;
-  }
-  .cta:hover{
-    transform:translateY(-3px) scale(1.02);
-    box-shadow:0 16px 32px -8px rgba(215,171,79,0.7);
-    filter:brightness(1.08);
-  }
-  .cta:active{ transform:translateY(-1px) scale(0.99); }
-  .cta-sub{ margin-top:10px; font-size:12.5px; color:var(--muted); }
-
-  /* ---- Quote ---- */
-  .quote-panel{
-    text-align:center;
-    padding:26px 20px;
-    margin-bottom:30px;
-    border-top:1px solid var(--line);
-    border-bottom:1px solid var(--line);
-    position:relative;
-  }
-  .quote-panel::before{
-    content:"“"; position:absolute; top:2px; left:50%; transform:translateX(-50%);
-    font-size:40px; color:rgba(215,171,79,0.35); font-family:serif;
-  }
-  .quote-gu{
-    font-size:19px; line-height:1.7; color:var(--gold-soft);
-    margin-top:18px; font-weight:500;
-  }
-
-  footer{ text-align:center; padding:0 0 36px; }
-  .foot-links{ font-size:12.5px; color:var(--muted); margin-bottom:10px; }
+  footer{ text-align:center; padding:0 0 30px; }
+  .foot-links{ font-size:12.5px; color:var(--muted); margin-bottom:14px; }
   .foot-links a{ color:var(--muted); text-decoration:none; margin:0 8px; transition:color .2s ease; }
   .foot-links a:hover{ color:var(--gold-soft); }
-  .foot-disclaimer{ font-size:11px; color:#5c6b62; max-width:340px; margin:0 auto; line-height:1.6; }
+
+  .meta-note{ font-size:11px; color:#5c6b62; max-width:360px; margin:0 auto 14px; line-height:1.7; }
+  .meta-note a{ color:var(--up); text-decoration:none; }
+  .meta-note a:hover{ text-decoration:underline; }
+
+  .disclaimer{
+    font-size:11px; color:#8a7a55; max-width:380px; margin:0 auto 10px; line-height:1.7;
+    border:1px solid rgba(215,171,79,0.2); border-radius:10px; padding:12px 14px;
+    background:rgba(215,171,79,0.04);
+  }
+  .disclaimer b{ color:var(--gold-soft); }
+
+  .age-note{ font-size:11px; color:#5c6b62; max-width:360px; margin:0 auto; line-height:1.7; }
 
   a:focus-visible, .cta:focus-visible{ outline:2px solid var(--gold-soft); outline-offset:3px; }
 </style>
 </head>
 <body>
 
-<div class="ticker" aria-hidden="true">
-  <div class="ticker-track">
-    <span class="ticker-item up">NIFTY <b>▲ 24,812</b></span>
-    <span class="ticker-item">SENSEX <b>81,904</b></span>
-    <span class="ticker-item up">BANKNIFTY <b>▲ 51,220</b></span>
-    <span class="ticker-item">GOLD <b>₹71,340</b></span>
-    <span class="ticker-item up">RELIANCE <b>▲ 1,412</b></span>
-    <span class="ticker-item up">NIFTY <b>▲ 24,812</b></span>
-    <span class="ticker-item">SENSEX <b>81,904</b></span>
-    <span class="ticker-item up">BANKNIFTY <b>▲ 51,220</b></span>
-    <span class="ticker-item">GOLD <b>₹71,340</b></span>
-    <span class="ticker-item up">RELIANCE <b>▲ 1,412</b></span>
-  </div>
-</div>
+<div class="top-banner gu">🚀 <b>ગુજરાતના ટ્રેડર્સ માટે:</b> Daily Nifty &amp; BankNifty Analysis</div>
 
 <header class="hero">
   <svg class="chart-bg" viewBox="0 0 500 220" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
@@ -221,49 +201,66 @@
       <img src="https://i.ibb.co/TST55dB/541251281-17857953192499722-1362993742765339255-n.jpg" alt="Gujarati Trader">
     </div>
 
-    <div class="eyebrow"><span class="dot"></span> Learning Community</div>
-
     <h1 class="brand display">GUJARATI <span>TRADER</span></h1>
-    <p class="tagline gu">બજારને સમજો, ચાર્ટ વાંચતા શીખો — સાચા જ્ઞાન સાથે તમારી ટ્રેડિંગ યાત્રા શરૂ કરો.</p>
+    <div class="role">Market Analyst &amp; Educator</div>
 
-    <div class="ledger">
-      <div class="ledger-row">
-        <div class="ledger-icon">🌐</div>
-        <div class="ledger-text"><b>Learning & Educational Sessions</b><span>Live sessions to build your market fundamentals from the ground up</span></div>
+    <p class="tagline gu">સ્ટોક માર્કેટ શીખો સરળ ગુજરાતી ભાષામાં. સ્ટોક માર્કેટના ડેઇલી અપડેટ્સ માટે જોડાઓ.</p>
+
+    <div class="stats">
+      <div class="stat-card">
+        <div class="stat-num">6+</div>
+        <div class="stat-label gu">વર્ષનો અનુભવ</div>
       </div>
-      <div class="ledger-row">
-        <div class="ledger-icon">📊</div>
-        <div class="ledger-text"><b>Market Concepts & Awareness</b><span>Understand how markets actually move, in plain language</span></div>
+      <div class="stat-card">
+        <div class="stat-num">10K+</div>
+        <div class="stat-label gu">સભ્યો</div>
       </div>
-      <div class="ledger-row">
-        <div class="ledger-icon">💎</div>
-        <div class="ledger-text"><b>Chart Reading Concepts</b><span>Learn to read candles, trends and patterns with confidence</span></div>
-      </div>
-      <div class="ledger-row">
-        <div class="ledger-icon">💻</div>
-        <div class="ledger-text"><b>Educational Case Discussions</b><span>Real examples broken down for practical understanding</span></div>
+      <div class="stat-card">
+        <div class="stat-num">Daily</div>
+        <div class="stat-label gu">લાઇવ અપડેટ્સ</div>
       </div>
     </div>
 
     <div class="cta-wrap">
       <a class="cta" href="https://t.me/+8NLAZuBXFCNkMGZl" target="_blank" rel="noopener">
-        📩 JOIN TELEGRAM
+        🚀 JOIN FREE TELEGRAM <span class="gu">(ફ્રી જુઓ)</span>
       </a>
-      <div class="cta-sub">Free to join · Learning community</div>
+      <div class="cta-sub">Free to join · Daily updates</div>
+    </div>
+
+    <div class="ledger">
+      <div class="ledger-row">
+        <div class="ledger-icon">📊</div>
+        <div class="ledger-text"><b class="gu">ડેઇલી ઇન્ટ્રાડે એનાલિસિસ</b><span>Daily Intraday Levels</span></div>
+      </div>
+      <div class="ledger-row">
+        <div class="ledger-icon">📈</div>
+        <div class="ledger-text"><b class="gu">નિફ્ટી અને બેંકનિફ્ટી</b><span>Nifty &amp; BankNifty Setup</span></div>
+      </div>
+      <div class="ledger-row">
+        <div class="ledger-icon">📚</div>
+        <div class="ledger-text"><b class="gu">ફ્રી લર્નિંગ કન્ટેન્ટ</b><span>Educational Trading Content</span></div>
+      </div>
     </div>
   </div>
 </header>
 
-<div class="quote-panel">
-  <p class="quote-gu gu">નિયત અચ્છી અને મહેનત સાચી હો, તો કામયાબી જરૂર મળે છે.</p>
-</div>
-
 <footer>
   <div class="wrap">
     <div class="foot-links">
-      <a href="#">Terms</a> | <a href="#">Privacy</a> | <a href="#">Disclaimer</a>
+      <a href="#">Privacy Policy</a> | <a href="#">Disclaimer</a> | <a href="#">Terms</a>
     </div>
-    <div class="foot-disclaimer">This site is not part of Facebook™ or endorsed by Facebook™.</div>
+
+    <div class="meta-note gu">
+      અમે એનાલિટિક્સ માટે Meta Pixel નો ઉપયોગ કરીએ છીએ. અમે કોઈ અંગત નાણાકીય માહિતી એકત્રિત કરતા નથી.<br>
+      Ads by <a href="https://t.me/srsagency" target="_blank" rel="noopener">SRS Ads</a>
+    </div>
+
+    <div class="disclaimer gu">
+      <b>ડીસ્ક્લેમર:</b> અમે SEBI રજિસ્ટર્ડ નથી. આ પેજ માત્ર શૈક્ષણિક હેતુ (Educational Purpose) માટે છે. ટ્રેડિંગ જોખમી છે, પોતાના જોખમે વેપાર કરો.
+    </div>
+
+    <div class="age-note gu">ભાગ લેવા માટે ઉંમર ૧૮+ હોવી જરૂરી છે. તમામ કન્ટેન્ટ માત્ર લર્નિંગ હેતુ માટે છે.</div>
   </div>
 </footer>
 
